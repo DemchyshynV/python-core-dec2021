@@ -46,8 +46,10 @@ class Note:
             with open(self.__file_name, 'w') as file:
                 purchase = input('Введіть назву покупки: ')
                 cost = ''
+
                 while not cost.isdigit():
                     cost = input('Введіть ціну покупки: ')
+
                 self.__notes.append({'purchase': purchase, 'cost': int(cost)})
                 json.dump(self.__notes, file)
         except:
@@ -57,6 +59,7 @@ class Note:
         if not self.__notes:
             print('В вас немає записів!!!')
             return
+
         for item in self.__notes:
             print(item)
 
@@ -73,6 +76,7 @@ class Note:
             if item['purchase'].lower() == find.lower():
                 print(item)
                 return
+
         print('Не знайдено!!!')
 
 
